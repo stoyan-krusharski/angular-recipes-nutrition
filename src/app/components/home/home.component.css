@@ -1,0 +1,16 @@
+.logo {
+  position: absolute;
+  width: 16%;
+  display: block;
+  top: 35px;
+  left: 42.5%;
+  z-index: 2;
+}
+
+.gif {
+  position: relative;
+  display: block;
+  margin-top: 15px;
+  z-index: 0;
+}
+/*# sourceMappingURL=home.component.css.map */

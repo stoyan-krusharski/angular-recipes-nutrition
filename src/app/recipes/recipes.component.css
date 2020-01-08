@@ -1,0 +1,127 @@
+.container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paginationCtrl ::ng-deep .ngx-pagination .current {
+  background: #DC9750 !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form-control {
+  border-color: #F3EAC0;
+  border-radius: 1px;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+}
+
+.searchFields {
+  display: block;
+  width: 950px;
+}
+
+.form-control:hover {
+  -webkit-box-shadow: 0 5px 15px rgba(146, 82, 95, 0.767);
+          box-shadow: 0 5px 15px rgba(146, 82, 95, 0.767);
+}
+
+.staydown {
+  position: fixed;
+  bottom: 0;
+}
+
+.nutri {
+  font-size: 1rem;
+  color: #922C40;
+}
+
+.red {
+  color: #922C40;
+}
+
+.recipenutrients {
+  position: relative;
+  top: 20;
+}
+
+#searchbar {
+  border-color: #922C40;
+  padding: 13px;
+}
+
+.recipeimg {
+  height: 140px;
+  width: 175px;
+}
+
+.card-img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 138px;
+}
+
+.card-title {
+  color: #1E2640;
+}
+
+.notesies {
+  color: #222b49;
+}
+
+.card-text {
+  color: #222b49;
+  margin-bottom: 0px;
+  height: 70px;
+  max-height: 55px;
+}
+
+.card-body {
+  height: 140px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#singlecard:hover {
+  -webkit-box-shadow: 0 5px 15px rgba(146, 82, 95, 0.767);
+          box-shadow: 0 5px 15px rgba(146, 82, 95, 0.767);
+}
+
+#singlecard {
+  height: 140px;
+  max-height: 140px;
+  margin-left: 13%;
+  margin-right: 13%;
+  border-color: #F3EAC0;
+  border-radius: 1px;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+}
+
+.date {
+  float: right;
+}
+
+.textNoRec {
+  text-align: center;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 80%;
+  font-weight: bold;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*# sourceMappingURL=recipes.component.css.map */

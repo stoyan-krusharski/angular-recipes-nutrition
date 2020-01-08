@@ -1,0 +1,24 @@
+<div *ngIf="!productsToSelect">
+  <div class="text row mt-2 px-0">
+    Please select foodgroup or type product name!
+  </div>
+</div>
+
+<div *ngIf="productsToSelect">
+  <label for="productSelect" class="product ml-2 mb-0 mt-1">Select product:</label>
+  <div class="productList overflow-auto row mx-auto mt- px-0">          
+    <div class="list-group" id="list-tab" role="tablist">
+      <div class="row innerLine" *ngFor="let product of products; let i = index">
+            <a class="link col-sm-10 mx-0 bg-transparent list-group-item list-group-item-action active"
+                  id="list-products" style="cursor:pointer;" data-toggle="list" role="tab" aria-controls="product"
+                  (click)="onProductClick(product)">              
+                  {{products[i].description}}              
+            </a>
+            <button class="col-sm-2 mx-0 btn btn-primary bg-transparent" type="button"
+              (click)="useSelectedProductEmitter(product)" [disabled]="this.isProductUsed(product)"><i
+                class="d-flex justify-content-center fa fa-plus"></i></button>
+      </div>  
+    </div>          
+  </div>
+</div>
+

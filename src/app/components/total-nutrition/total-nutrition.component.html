@@ -1,0 +1,143 @@
+<nb-flip-card class="cardCtrl mx-auto">
+  <nb-card-front>
+    <nb-card class="nbCard">
+      <nb-card-body class="nbCardBody">
+        <div id="totalWeight" class="mx-auto mt-2">Total weight: {{this.totalWeight}}g</div>
+        <div id="commentText" class="mx-auto mt-2">Values per 2000kcal daily intake</div>
+        <div class="progress-wrapper mx-auto mt-2">
+          <round-progress 
+            [max]="2000"
+            [current]="totalNutrition.ENERC_KCAL.value"
+            [color]="'#922C40'"
+            [radius]="15"
+            [stroke]="3"
+            [semicircle]="false"
+            [rounded]="false"
+            [clockwise]="true"
+            [responsive]="true"
+            [duration]="2400"
+            [animation]="'easeInOutQuart'"
+            >
+            </round-progress>
+
+          <div class="text">{{totalNutrition.ENERC_KCAL.value}}</div>
+          <div class="subtitle">{{totalNutrition.ENERC_KCAL.description}}(kcal)</div>
+        </div>
+        <div class="progress-wrapper mx-auto mt-3">
+          <round-progress 
+            [max]="55" 
+            [current]="totalNutrition.PROCNT.value" 
+            [color]="'#922C40'" 
+            [radius]="15" 
+            [stroke]="3" 
+            [semicircle]="false"
+            [rounded]="false" 
+            [clockwise]="true" 
+            [responsive]="true" 
+            [duration]="2100" 
+            [animation]="'easeInOutQuart'">
+          </round-progress>
+
+          <div class="text">{{totalNutrition.PROCNT.value}}</div>
+          <div class="subtitle">Proteins(g)</div>
+        </div>
+        <div class="progress-wrapper mx-auto mt-3">
+          <round-progress 
+            [max]="280" 
+            [current]="totalNutrition.CHOCDF.value" 
+            [color]="'#922C40'" 
+            [radius]="15" 
+            [stroke]="3" 
+            [semicircle]="false"
+            [rounded]="false" 
+            [clockwise]="true" 
+            [responsive]="true" 
+            [duration]="2100" 
+            [animation]="'easeInOutQuart'">
+          </round-progress>
+
+          <div class="text">{{totalNutrition.CHOCDF.value}}</div>
+          <div class="subtitle">Carbs(g)</div>
+        </div>
+        <div class="progress-wrapper mx-auto mt-3">
+          <round-progress 
+            [max]="60" 
+            [current]="totalNutrition.FAT.value" 
+            [color]="'#922C40'" 
+            [radius]="15" 
+            [stroke]="3" 
+            [semicircle]="false"
+            [rounded]="false" 
+            [clockwise]="true" 
+            [responsive]="true" 
+            [duration]="2100" 
+            [animation]="'easeInOutQuart'">
+          </round-progress>
+
+          <div class="text">{{totalNutrition.FAT.value}}</div>
+          <div class="subtitle">Lipids(g)</div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+</nb-card-front>
+<nb-card-back>
+  <nb-card class="nbCardBack">
+    <nb-card-body class="nbCardBodyBack container mt-2">
+      <h6 class="row titleMinorNutrients mt-3">Sugars and fiber</h6>
+    
+        <div class="row">
+          <div class="description mr-auto">{{totalNutrition.SUGAR.description}}</div>
+          <div class="value">{{totalNutrition.SUGAR.value}}{{totalNutrition.SUGAR.unit}}</div>
+        </div>
+        <div class="row">
+          <div class="description mr-auto">Fiber, total</div>
+          <div class="value">{{totalNutrition.FIBTG.value}}{{totalNutrition.FIBTG.unit}}</div></div>
+      <hr>
+      <h6 class="row titleMinorNutrients mt-2">Vitamins</h6>
+    
+        <div class="row">
+          <div class="description mr-auto">Vitamin A</div>
+          <div class="value justify-content-end">{{totalNutrition.VITA_IU.value}}{{totalNutrition.VITA_IU.unit}}</div>
+        </div>
+        <div class="row">
+          <div class="description mr-auto">Vitamin E</div>
+          <div class="value">{{totalNutrition.TOCPHA.value}}{{totalNutrition.TOCPHA.unit}}</div>
+        </div>
+        <div class="row">
+          <div class="description mr-auto">{{totalNutrition.VITD.description}}</div>
+          <div class="value">{{totalNutrition.VITD.value}}{{totalNutrition.VITD.unit}}</div></div>
+        <div class="row">
+          <div class="description mr-auto">Vitamin C</div>
+          <div class="value">{{totalNutrition.VITC.value}}{{totalNutrition.VITC.unit}}</div></div>
+        <div class="row">
+          <div class="description mr-auto">{{totalNutrition.VITB12.description}}</div>
+          <div class="value">{{totalNutrition.VITB12.value}}{{totalNutrition.VITB12.unit}}</div></div>
+        <div class="row">
+          <div class="description mr-auto">{{totalNutrition.FOLAC.description}}</div>
+          <div class="value">{{totalNutrition.FOLAC.value}}{{totalNutrition.FOLAC.unit}}</div></div>
+     
+      <hr>
+      <h6 class="row titleMinorNutrients mt-2">Fatty acids</h6>
+      
+        <div class="row">
+          <div class="description mr-auto">Trans</div>
+          <div class="value">{{totalNutrition.FATRN.value}}{{totalNutrition.FATRN.unit}}</div>
+        </div>
+        <div class="row">
+          <div class="description mr-auto">Saturated</div>
+          <div class="value">{{totalNutrition.FASAT.value}}{{totalNutrition.FASAT.unit}}</div></div>
+        <div class="row">
+          <div class="description mr-auto">Monounsatur.</div>
+          <div class="value ml-auto">{{totalNutrition.FAMS.value}}{{totalNutrition.FAMS.unit}}</div></div>
+        <div class="row">
+          <div class="description mr-auto">Polyunsatur.</div>
+          <div class="value ml-auto">{{totalNutrition.FAPU.value}}{{totalNutrition.FAPU.unit}}</div></div>
+        <div class="row">
+          <div class="description mr-auto">{{totalNutrition.CHOLE.description}}</div>
+          <div class="value">{{totalNutrition.CHOLE.value}}{{totalNutrition.CHOLE.unit}}</div></div>
+       
+    </nb-card-body>
+  </nb-card>
+</nb-card-back>
+</nb-flip-card>
+

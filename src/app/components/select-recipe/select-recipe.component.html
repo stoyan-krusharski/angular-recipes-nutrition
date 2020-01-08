@@ -1,0 +1,29 @@
+<div *ngIf="!subrecipesToSelect">
+  <div class="text row mt-2 px-0">
+    Please select category or type part of recipe title!
+  </div>
+</div>
+
+<div *ngIf="subrecipesToSelect" class="#populatedProducts">
+  <label for="subrecipeSelect" class="product ml-2 mb-0 mt-1">Select subrecipe:</label>
+  <div class="productList overflow-auto row mx-auto mt-0 px-0">
+
+    
+    <div class="list-group" id="list-tab" role="tablist">
+      <div class="row innerLine" *ngFor="let subrecipe of subrecipes; let i = index">
+        <a class="link col-sm-10 mx-0 bg-transparent list-group-item list-group-item-action active"
+          style="cursor:pointer;" id="list-products"
+          data-toggle="list" role="tab" aria-controls="subrecipe" (click)="onSubrecipeClick(subrecipe)">
+          {{subrecipes[i].title}}
+        </a>
+
+        <button class="col-sm-2 mx-0 btn btn-primary bg-transparent" type="button"
+          (click)="useSelectedSubrecipeEmitter(subrecipe)" [disabled]="this.isSubrecipeUsed(subrecipe)"><i
+            class="d-flex justify-content-center fa fa-plus"></i></button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

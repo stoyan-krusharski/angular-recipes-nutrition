@@ -1,0 +1,83 @@
+ <div *ngIf="isLoggedIn">
+  <form [formGroup]="searchRecipeForm" (ngSubmit)="this.searchButtonClick()"
+    class="searchFields mx-auto my-3 searchForm">
+    <div class="row">  
+      <div class="col-2 px-0">
+        <div class="label pl-1">Select category:</div>
+        <select formControlName="categoriesToSelect" id="categoriesToSelect" class="selectpicker form-control">
+          <option [value]="''">None</option>
+          <option *ngFor="let category of categoriesToSelect; let i = index" [value]="categoriesToSelect[i].name">
+            {{categoriesToSelect[i].name}}
+          </option>
+        </select>
+      </div>
+      <div class="col-2.5 px-0">
+        <div class="label pl-1">Find recipe by title:</div>
+        <div class="input-group">
+          <input formControlName="searchField" type="text" id="searchfield" class="form-control" placeholder="">
+        </div>
+      </div>
+      <div class="col-1.5 px-0">
+        <div class="label pl-1">Select nutrient:</div>
+        <select formControlName="nutrientsToSelect" id="nutrientsToSelect" class="selectpicker form-control">
+          <option disabled>Select nutrient</option>
+          <option [value]="''">None</option>
+          <option *ngFor="let nutrient of nutrListDisplay; let i = index" [value]="nutrListDisplay[i]">
+            {{nutrient}}
+          </option>
+        </select>
+      </div>
+      <div class="col-2 px-0 d-flex align-items-end"><input type="number" min="0" class="form-control"
+          formControlName="minValue" placeholder="Min (g/kCal)"
+        id="minValue-input" ></div>
+      <div class="col-2 px-0 d-flex align-items-end"><input type="number" min="0" class="form-control"
+          formControlName="maxValue" placeholder="Max (g/kCal)"
+        id="maxValue-input" ></div>
+      
+      <div class="col-1.5 px-0 d-flex align-items-end">
+        <button class="btn btn-secondary form-control" type="submit" [disabled]="!searchRecipeForm.valid">
+        Find recipe<i class="fa fa-search"></i>
+      </button></div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="this.recipes.length === 0" class="textNoRec mt-5">
+    No recipes were found  
+</div>
+
+<div *ngFor="let recipe of recipes | paginate: { id: 'server', itemsPerPage: 3, currentPage: p, totalItems: total }">
+    <div class="container">
+
+          <div class="card mb-1 mx-7" id="singlecard">
+            <div class="row no-gutters">
+              <div class="col-md-3">
+                <div class="recipeimg">
+                <img src={{recipe.imgURL}} class="img-fluid img-responsive card-img" alt="...">
+                </div>
+              </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h5 class="card-title" [routerLink]="['/recipes', recipe.id]" style="cursor:pointer;">
+                      {{recipe.title}} | <small>{{recipe.category}}</small></h5>
+                    <p class="card-text notesies ellipsis">{{recipe.notes}}</p>
+                    <div class="row recipenutrients">
+                      <div class="col-md-2 px-0 text-center red"><small><strong>Fat: <span class="nutri">{{recipe.nutrition.FAT.value}}{{recipe.nutrition.FAT.unit}}</span></strong></small></div>
+                      <div class="col-md-3 px-1 text-center red"><small><strong>Carbs: <span class="nutri">{{recipe.nutrition.CHOCDF.value}}{{recipe.nutrition.CHOCDF.unit}}</span></strong></small></div>
+                      <div class="col-md-3 px-1 text-center red"><small><strong>Proteins: <span class="nutri"> {{recipe.nutrition.PROCNT.value}}{{recipe.nutrition.PROCNT.unit}}</span></strong></small></div>
+                      <div class="col-md-2 px-1 text-center red"><small><strong><span class="nutri"> {{recipe.nutrition.ENERC_KCAL.value}}{{recipe.nutrition.ENERC_KCAL.unit}}</span></strong></small></div>
+                      <p class="card-text date"><small class="text-muted">{{this.recipe.createdOn| date}}</small></p>
+                    </div>                  
+                  </div>
+            </div>
+          </div>
+        </div>
+    </div>     
+</div>
+
+<div class="row">
+  
+  <div class="col-12 staydown text-center mx-auto">
+    <pagination-controls class="paginationCtrl mx-auto" (pageChange)="getPage($event, this.paginateObj)" id="server"></pagination-controls>
+  </div>
+</div>

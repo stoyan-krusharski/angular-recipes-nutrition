@@ -1,0 +1,185 @@
+:host nb-tab {
+  padding: 1.25rem;
+}
+
+#thepage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.totalnutry {
+  height: auto;
+  margin-bottom: 0px;
+  margin-top: 25px;
+  /* max-height: 20%; */
+}
+
+#recipebox {
+  margin-top: 13px;
+}
+
+.linkss {
+  text-align: right;
+  margin-top: 25px;
+}
+
+/* .nb-theme-default {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
+    align-self: center;
+    border-color: #922C40;
+} */
+.progress-percentage-wrapper {
+  position: center;
+  margin: 0px auto;
+  font-size: 11px;
+}
+
+.progress-value {
+  position: absolute;
+  color: #fda500;
+  width: 65%;
+  text-align: center !important;
+  top: 55%;
+  /*     left: 10px;
+    top: 40%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600; */
+}
+
+.card-img-top {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+}
+
+#recipeimg {
+  width: 150px;
+  /* max-width: 120px;
+    width: 100%; */
+  height: auto;
+}
+
+/* .col-4 .col-6 .col-8 {
+    padding: 0px;
+    object-fit: fill;
+} */
+#recipebox {
+  margin-top: 13px;
+}
+
+/* .card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
+    align-self: center;
+    border-color: #922C40;
+} */
+.progress-percentage-wrapper {
+  position: center;
+  margin: 0px auto;
+  /* font-size: auto; */
+}
+
+.progress-value {
+  /* left: 10px;
+    top: 40%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600; */
+  position: absolute;
+  color: #fda500;
+  width: 65%;
+  font-size: 1.4vw;
+  text-align: center !important;
+  top: 35%;
+  /*     left: 10px;
+    top: 40%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600; */
+}
+
+.total-progress-value {
+  position: absolute;
+  font-size: 140%;
+  color: #fda500;
+  width: 100%;
+  text-align: center !important;
+  top: 30%;
+}
+
+.total-progress-circle {
+  margin-top: 10px;
+  padding: 0px;
+}
+
+.textprgrss {
+  -webkit-text-emphasis-color: #1E2640;
+          text-emphasis-color: #1E2640;
+  text-align: center;
+}
+
+.prgrss {
+  display: inline-block;
+  display: -moz-inline-box;
+  *display: inline;
+  /* For IE7 */
+  zoom: 1;
+  /* Trigger hasLayout */
+  width: 20%;
+  /* text-align: center; */
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+/* .circleprogress {
+    floa
+} */
+.box {
+  position: relative;
+}
+
+.date {
+  /* float: right; */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.recipetitle {
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+
+.table {
+  display: table;
+}
+
+.nutricircles {
+  position: absolute;
+  width: 65%;
+}
+
+.recipetabs {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  overflow-y: scroll;
+}
+
+.nutridata {
+  float: right;
+}
+/*# sourceMappingURL=recipe-details.component.css.map */

@@ -1,0 +1,80 @@
+/* .giphy {
+    text-align: center;
+} */
+
+$color: #1E2640;
+$color2: rgb(39, 49, 83);
+$color3: rgb(51, 65, 110);
+$color4: rgb(46, 58, 99);
+$color5: #922C40;
+
+body{
+	height:100hv;
+	background: #EDEEE9;
+	margin:0;
+}
+
+@function makelongshadow($color, $color2, $color3, $color4, $color5) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 20 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color};
+  }
+  @for $i from 21 through 40 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color2};
+  }
+  @for $i from 41 through 60 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color3};
+  }
+  @for $i from 61 through 80 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color4};
+  }
+  @for $i from 81 through 100 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color5};
+  }
+  @return $val;
+}
+
+@keyframes animateShadow {
+  0%   {
+    text-shadow: makelongshadow($color, $color2, $color3, $color4, $color5);
+  }
+  20%  {
+    text-shadow: makelongshadow($color2, $color3, $color4, $color5, $color);
+  }
+  40%  {
+    text-shadow: makelongshadow($color3, $color4, $color5, $color, $color2);
+  }
+  60% {
+    text-shadow: makelongshadow($color4, $color5, $color, $color2, $color3);
+  }
+  80% {
+    text-shadow: makelongshadow($color5, $color, $color2, $color3, $color4);
+  }
+  100% {
+    text-shadow: makelongshadow($color, $color2, $color3, $color4, $color5);
+  }
+}
+
+.giphy {
+    max-height: 70%;
+}
+div {
+	padding : 5px;
+	overflow:hidden;
+	margin: 0px 0px;;
+	font-weight: 600;
+	line-height: 0.8;
+	font-size: 60px;
+	text-align: left;
+	font-size: 3rem;
+	color: #EDEEE9;
+	font-family: 'Georgia';
+	text-shadow: makelongshadow($color, $color2, $color3, $color4, $color5);
+  animation-name: animateShadow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.notFoundText {
+  font-weight: bold;
+  font-size: 120%;
+}

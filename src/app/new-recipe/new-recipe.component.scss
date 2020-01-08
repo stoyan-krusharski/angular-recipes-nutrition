@@ -1,0 +1,57 @@
+.row{
+    height: 100%;
+    width: 100%;
+}
+.form{
+   /* border-radius: 2px;
+   border-right-style: solid;
+   border-color: #922C40; */
+   font-size:80%;
+}
+.form-control {
+   margin: 2px;
+   border-color: #F3EAC0;
+   border-radius: 1px;
+   transition: box-shadow 0.3s ease-in-out;
+}
+.form-control:hover {
+   //transition: opacity 0.3s ease-in-out;
+   box-shadow: 0 5px 15px rgba(146, 82, 95, 0.767);
+}
+.recipe-select {
+   border: 1px;
+   border-radius: 1px;
+   border-right-style: solid;
+   border-color: #922C40;
+}
+.recipe-nutrients {
+   border: 1px;
+   border-radius: 1px;
+   border-left-style: solid;
+   border-color: #922C40;
+}
+.recipe-create {
+   background-color: rgb(228, 225, 222);
+}
+.recipe-select,
+.recipe-nutrients {
+   background-color:  rgb(255, 255, 255);
+}
+.select{
+   height: 10%;
+}
+.searchFields{
+   height: 12%
+}
+.options{
+   height: 78%;  
+}
+.create{
+   height: 100%;
+}
+.selectIngredient{
+   font-size: 120%;
+}
+.prodComp{
+   width: 100%;
+}

@@ -1,0 +1,41 @@
+<nav id="header" class="navbar navbar-expand-lg navbar-light">
+
+  <img class="nav-link navbar-brand" src="../../../assets/chefslogoo.png"[routerLink]="['/recipes']" [class.disabled]="!isLoggedIn">
+
+  <button class="hamburger hamburger--slider d-lg-none" [ngClass]="isHamburgerActive ? 'is-active' : '' " type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" (click)="isHamburgerActive = !isHamburgerActive"
+    data-target="#navbarsDefault">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" *ngIf="isLoggedIn">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/recipes']" routerLinkActive="active">
+          All Recipes
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/newrecipe']" routerLinkActive="active" (click)="emitNullUpdateRecipe()">
+          New Recipe
+        </a>        
+      </li>             
+    </ul>
+
+    <div class="btn-group" *ngIf="!this.isLoggedIn">
+      <button class="nav-link btn btn-outline-primary" [routerLink]="['/users/register']">
+        Register
+      </button>
+      <button class="nav-link btn btn-outline-primary" [routerLink]="['/users/login']">
+        Login
+      </button>
+    </div>
+    <div class="btn-group" *ngIf="this.isLoggedIn">
+      <span class="auth-username mr-3 my-auto">{{ username }} </span>
+      <button class="nav-link btn btn-outline-success" (click)="triggerLogout()">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>

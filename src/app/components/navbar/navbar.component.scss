@@ -1,0 +1,27 @@
+#header {
+    max-height: 60px;
+}
+
+.auth-username {
+    padding-right: 2%;
+}
+
+.navbar-brand {
+    width: 6%;
+    max-width: 8%;
+    height: auto;
+    float: left;
+    padding: 0px;
+    margin-top: 5px;
+}
+
+.hamburger--slider {
+    color: #922C40;
+}
+.navbar-light .navbar-nav .active >.nav-link {
+    color: rgb(243, 239, 222);
+}
+.nav-link, .auth-username {
+    color: rgb(243, 239, 222);
+}
+

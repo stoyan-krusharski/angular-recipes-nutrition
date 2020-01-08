@@ -1,0 +1,24 @@
+node_modules/
+# /dist
+# /public
+# .deploy*/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# misc
+Thumbs.db
+.DS_Store
+db.json
+*.log

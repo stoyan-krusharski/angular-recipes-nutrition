@@ -1,0 +1,71 @@
+  <!-- Page Content -->
+
+    <div class="row">
+      
+      <div class="col-1 mr-5"></div>
+  
+      <div class="col-7">
+      <!-- Portfolio Item Heading -->
+      <div class="row">
+        <h1 class="recipetitle col-9">{{currentRecipe.title}}<br><h4><small>{{currentRecipe.category}}</small></h4></h1>
+      
+        <div class="col-3 linkss">
+          <button class="btn-sm btn-outline-warning mr-1" (click)="goToPage(currentRecipe.id)">Edit</button>
+          <app-ngbd-modal-delete-component (emitOuterDelete)="deleteRecipe(currentRecipe.id)" [recipeId]=(currentRecipe.id)>
+            </app-ngbd-modal-delete-component>
+        </div>
+      </div>
+    
+    
+      <!-- Portfolio Item Row -->
+      <div class="row data">
+    
+        <div class="col-md-3" id="picholder">
+          <img class="rounded zoom movetocenter" id="recipeimg" src={{currentRecipe.imgURL}} alt="">
+        </div>
+    
+        <div class="col-md-9 box">
+          <h4 class="my-2">Notes:</h4>
+          <p>{{currentRecipe.notes}}</p>
+          <p class="card-text date"><small class="text-muted">created on: {{currentRecipe.createdOn | date : 'short' }}</small></p>
+        </div>
+    
+      </div>
+      
+      <div class="row">
+        <div class="col-12">
+        <ngb-tabset class="flex-row" #t="ngbTabset">
+            <ngb-tab id="tab tab-selectbyid1" title="Ingredients">
+              <ng-template ngbTabContent>
+                <div class="recipetabs">
+                  <ul class="list-group list-group-flush">
+                    <li class="flex-row list-group-item" *ngFor="let ingredient of currentRecipe.ingredients">{{ingredient.product}}
+                      <span class="nutridata">{{ingredient.unit}}</span>
+                      <span class="nutridata n2">{{ingredient.quantity}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab id="tab-selectbyid2" title="Subrecipes">
+                <ng-template ngbTabContent>
+                  <div class="recipetabs">
+                      <ul class="list-group list-group-flush">
+                        <li class="flex-row list-group-item" *ngFor="let subrecipe of currentRecipe.subrecipes">{{subrecipe.originRecipe}}
+                          <span class="nutridata">{{subrecipe.gramsPerMeasure*subrecipe.quantity}} g</span>
+                        </li>
+                      </ul>
+                  </div>
+                </ng-template>
+              </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+      </div>
+      <!-- Related Projects Row -->
+      <div class="col-3 table">
+      <app-total-nutrition class="nutricircles" [recipeToUpdate]="currentRecipe" [totalNutrition]="totalNutrition" [totalWeight]="currentRecipe.weight"></app-total-nutrition>
+        
+      <div class="col-1"></div>
+    
+    </div>

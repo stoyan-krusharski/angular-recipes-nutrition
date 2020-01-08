@@ -1,0 +1,86 @@
+
+  <div class="row mx-0">
+    <div class="col-sm-4 recipe-select">
+      <div class="row mx-0 select">
+        <div class="btn-group btn-sm mx-auto mt-2 mb-1">
+          <button class="nav-link btn btn-outline-primary selectbtns" [disabled]="selectProductSelected"
+            (click)="toggleSelectProduct()">
+            Select product
+          </button>
+          <button class="nav-link recipe btn btn-outline-primary selectbtns" [disabled]="!selectProductSelected"
+            (click)="toggleSelectProduct()">
+             Select recipe 
+          </button>
+        </div>
+      </div>
+          <form [formGroup]="formFoodGroups" (ngSubmit)="this.searchButtonClick()" class="row searchFields mx-auto mt-2 mb-3 px-0 pb-0">
+            <div *ngIf="selectProductSelected" class="row px-5 mx-auto my-0 line">
+              <select formControlName="groupsToSelect" id="groupsToSelect" class="selectpicker form-control mx-auto my-0 line">
+                
+                <option disabled>Select foodgroup</option>
+                <option>None</option>
+                <option *ngFor="let foodgroup of groupsToSelect; let i = index" [value]="groupsToSelect[i].description">
+                  {{groupsToSelect[i].description}}
+                </option>
+              </select>
+              <div class="input-group mx-auto line">
+                <input formControlName="searchField" type="text" id="searchfield" class="form-control"
+                  placeholder="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-primary searchIngredient" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!selectProductSelected" class="row px-5 mx-auto my-0 line">
+              <select formControlName="groupsToSelect" id="groupsToSelect" class="selectpicker form-control mx-auto my-0 line">
+
+                <option disabled>Select category</option>
+                <option>None</option>
+                <option *ngFor="let category of groupsToSelect; let i = index" [value]="groupsToSelect[i].name">
+                  {{groupsToSelect[i].name}}
+                </option>
+              </select>
+              <div class="input-group mx-auto line">
+                <input formControlName="searchField" type="text" id="searchfield" class="form-control"
+                  placeholder="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-primary searchIngredient" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+      <div class="row options mx-auto mt-0">
+        <div *ngIf="selectProductSelected" class="container prodComp mx-auto">
+          <app-select-product [products]="this.products"
+            [productsToSelect]="productsToSelect" (showProduct)="showProduct($event)"></app-select-product>
+        </div>
+        <div *ngIf="!selectProductSelected" class="container prodComp mx-auto">
+          <app-select-recipe [subrecipes]="this.subrecipes" [subrecipesToSelect]="subrecipesToSelect"
+            [recipeToUpdate]="recipeToUpdate" (showSubrecipe)="showSubrecipe($event)"></app-select-recipe>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 recipe-create">
+      <div class="row create mx-auto mt-1">
+        <div class="container prodComp middlewindow mx-auto px-0">
+          <app-recipe-form class="createRec" [categories]="this.categories" (emitRecipeData)="this.createRecipe($event)" [recipeToUpdate]="recipeToUpdate" (changeIngredientData)="this.recalculateNutrients($event)"></app-recipe-form>
+        </div>  
+      </div>
+      <div *ngIf="currentProduct">
+        <app-product-nutrition (clickOutside)="hideProduct()" (hideProduct)="hideProduct()" [item]="currentProduct">
+        </app-product-nutrition>
+      </div>
+      <div *ngIf="currentSubrecipe">
+        <app-product-nutrition (clickOutside)="hideSubrecipe()" (hideProduct)="hideSubrecipe()" [item]="currentSubrecipe">
+        </app-product-nutrition>
+      </div>
+    </div>
+    <div class="col-sm-2 recipe-nutrients px-0">
+        <app-total-nutrition [recipeToUpdate]="recipeToUpdate" [totalNutrition]="totalNutrition" [totalWeight]="weightOfRecipe">
+        </app-total-nutrition>
+    </div>
+  </div>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,KAAK,EAAE,GAAG;EACV,WAAW,EAAE,IAAI;EACjB,YAAY,EAAE,IAAI;CACnB;;AAED,AAAA,MAAM,CAAC;EACL,KAAK,EAAE,IAAI;CACZ;;AAED,AAAA,YAAY,CAAC;EACX,KAAK,EAAE,UAAU;EACjB,SAAS,EAAE,GAAG;CACf",
+    "sources": [
+        "register.component.scss"
+    ],
+    "names": [],
+    "file": "register.component.css"
+}

@@ -1,0 +1,94 @@
+.progress-wrapper {
+  position: relative;
+  width: 40%;
+}
+
+.progress-wrapper .text {
+  position: absolute;
+  top: 39%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 80%;
+  font-weight: bold;
+  padding-top: 10%;
+}
+
+.text {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+#totalWeight {
+  text-align: center;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.cardCtrl ::ng-deep .flip-button {
+  width: 15%;
+  position: relative;
+  left: 0;
+  top: 50%;
+  bottom: 50%;
+}
+
+.cardCtrl {
+  height: 100%;
+}
+
+.cardCtrl ::ng-deep .flipcard-body {
+  height: 100%;
+}
+
+.cardCtrl ::ng-deep .flipcard-body .front-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.nbCard {
+  height: 100%;
+}
+
+.nbCardBody {
+  height: 100%;
+}
+
+.nbCardBack {
+  margin-left: 15%;
+  margin-right: 7%;
+}
+
+.nbCardBodyBack {
+  font-size: 90%;
+}
+
+.titleMinorNutrients {
+  font-size: 110%;
+  font-weight: bold;
+  display: block;
+}
+
+hr {
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+
+.row {
+  font-size: 105%;
+}
+
+#commentText {
+  text-align: center;
+  font-size: 70%;
+  font-weight: bold;
+}
+/*# sourceMappingURL=total-nutrition.component.css.map */

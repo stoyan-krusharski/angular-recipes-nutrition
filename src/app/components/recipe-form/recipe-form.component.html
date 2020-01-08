@@ -1,0 +1,176 @@
+<form [formGroup]="createRecipeForm" (ngSubmit)="this.submitNewRecipe()" class="mx-auto mt-2 px-0 text">
+  <div class="form-group row mx-0 details">        
+        
+    <img class="img col-sm-4"
+      src="../../../assets/meal-icon.png">
+        
+    <div class="col-sm-8">
+        
+      <input class="row form-control" formControlName="titleField" type="text" id="titleField" 
+            placeholder="Title">
+        
+        <select class="row selectpicker form-control" formControlName="categoriesField" id="categories" >
+              <option disabled>Select category</option>
+              <option *ngFor="let category of categories; let i = index" [value]="categories[i].name">
+                {{categories[i].name}}
+              </option>
+        </select>
+        <textarea class="row form-control" formControlName="notesField" type="text" id="notesField"
+          placeholder="Notes"></textarea>
+    </div>
+  </div>
+      
+  <div *ngIf="productSelected || hasIngredients" class="row dynamicInput px-0 mx-auto mb-1">
+    <div class="row lineFormGroup ml-3 ingredient mb-2">Ingredients:</div>  
+    <div class="form-group px-0 mx-0" [ngClass]="{'containerFormGroup': subrecipeSelected || hasSubrecipes, 'containerFormGroupBigHeight': !subrecipeSelected && !hasSubrecipes}">
+      <div *ngIf="productSelected" class="lineName">
+          <div class="row lineFormGroup px-0 mx-auto">
+          <div formArrayName="itemsProd"
+              *ngFor="let item of createRecipeForm.get('itemsProd').controls; let i = index;" class="lineName ingList">
+                <div class="row lineName ingLine mx-0 mb-3" [formGroupName]="i">
+                  
+                    <div class="col-sm-6 pr-4 pl-0 ingName">{{item.value.itemName}}</div>
+                    <div class="col-sm-6 ml-auto p-0 ">
+                      <div class="row input-group p-0 mx-0">
+                        <input type="number" min="0" class="form-control col-sm-3" formControlName="amount" placeholder="Amount" id="amount-input">
+                        <div class="x">x</div>
+                        <select title="Measure" class="form-control col-sm-9 selectpicker unitSelect" formControlName="measures"
+                          placeholder="Measure">
+                            <option *ngFor="let measure of item.value.list; let p=index" [value]="item.value.list[p]">
+                            {{measure}}
+                          </option>
+                        </select>
+                                        
+                        <div class="input-group-append">
+                          <span class="input-group-text bg-transparent delete" style="cursor:pointer;"
+                            (click)="removeProd(i)"><i class="fas fa-times"></i></span>
+                        </div>
+                    
+                      </div>  
+                    </div>  
+                </div>  
+          </div>
+          </div>
+      </div> 
+      <div *ngIf="hasIngredients" class="lineName">
+        <div class="row lineFormGroup px-0 mx-auto">
+
+          <div formArrayName="prevProd" *ngFor="let item of createRecipeForm.get('prevProd').controls; let i = index;"
+            class="lineName">
+            <div class="row lineName mx-0 mb-3" [formGroupName]="i">
+              <div class="col-sm-6 pr-4 pl-0 ingName">{{item.value.itemName}}</div>
+              <div class="col-sm-6 ml-auto p-0">
+                <div class="row input-group p-0 mx-0">
+                  <input type="number" min="0" class="form-control col-sm-3" formControlName="amount"
+                    placeholder="Amount" id="amount-input">
+                  <div class="x">x</div>
+                  <select title="Measure" class="form-control selectpicker col-sm-9 unitSelect" formControlName="measures"
+                    placeholder="Measure">
+                    <option *ngFor="let measure of item.value.list; let p=index" [value]="item.value.list[p]">
+                      {{measure}}
+                    </option>
+                  </select>
+
+                  <div class="input-group-append">
+                    <span class="input-group-text bg-transparent delete" style="cursor:pointer;" (click)="removePrevProd(i)"><i
+                        class="fas fa-times"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+ </div>
+
+<div *ngIf="subrecipeSelected || hasSubrecipes" class="row dynamicInput px-0 mx-auto mb-1">
+  <div class="row lineFormGroup ml-3 ingredient mb-2">Subrecipes:</div>
+  <div class="form-group px-0 mx-0"
+    [ngClass]="{'containerFormGroup': productSelected || hasIngredients, 'containerFormGroupBigHeight': !productSelected && !hasIngredients}">
+    <div *ngIf="subrecipeSelected" class="lineName">
+      <div class="row lineFormGroup px-0 mx-auto">
+      <div formArrayName="itemsSubRec"
+        *ngFor="let subrecipe of createRecipeForm.get('itemsSubRec').controls; let n = index;" class="lineName">
+        <div class="row lineName mx-0 mb-3" [formGroupName]="n">
+
+          <div class="col-sm-6 pr-4 pl-0 ingName">{{subrecipe.value.itemName}}</div>
+          <div class="col-sm-6 ml-auto p-0">
+            <div class="row input-group p-0 mx-0">
+              <input type="number" min="0" class="form-control col-sm-3" formControlName="amount" placeholder="Amount"
+                id="amount-input">
+              <div class="x">x</div>
+              <select title="Measure" class="form-control selectpicker col-sm-9 unitSelect" formControlName="measures"
+                placeholder="Measure">
+                <option [value]="subrecipe.value.measures">
+                  {{subrecipe.value.measures}}
+                </option>
+
+              </select>
+              <div class="input-group-append">
+                <span class="input-group-text bg-transparent delete" style="cursor:pointer;" (click)="removeSubRec(n)"><i
+                    class="fas fa-times"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    
+      <div *ngIf="hasSubrecipes" class="lineName">
+        <div class="row lineFormGroup px-0 mx-auto">
+        <div formArrayName="prevSubr"
+          *ngFor="let subrecipe of createRecipeForm.get('prevSubr').controls; let n = index;" class="lineName">
+          <div class="row lineName mx-0 mb-3" [formGroupName]="n">
+            <div class="col-sm-6 pr-4 pl-0 ingName">{{subrecipe.value.itemName}}</div>
+            <div class="col-sm-6 ml-auto p-0">
+              <div class="row input-group p-0 mx-0">
+                <input type="number" min="0" class="form-control col-sm-3" formControlName="amount" placeholder="Amount"
+                  id="amount-input">
+                <div class="x">x</div>
+                <select title="Measure" class="form-control selectpicker col-sm-9 unitSelect" formControlName="measures"
+                  placeholder="Measure">
+                  <option [value]="subrecipe.value.measures">
+                    {{subrecipe.value.measures}}
+                  </option>
+
+                </select>
+                <div class="input-group-append">
+                  <span class="input-group-text bg-transparent delete" style="cursor:pointer;" (click)="removePrevSubr(n)"><i
+                      class="fas fa-times"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>   
+    </div>
+  </div>  
+</div>  
+
+    <div *ngIf="!recipeToUpdate && (productSelected || subrecipeSelected)" class="row d-flex">
+      <div class="col-sm-6 d-flex justify-content-end">
+        <button class="btn btn-primary bg-transparent revertBtn" type="button" (click)="resetForm()">Reset form</button>
+      </div>  
+      <div class="col-sm-6">         
+        <button class="btn btn-primary" type="submit" [disabled]="!createRecipeForm.valid || (this.createRecipeForm.value.itemsProd.length === 0 &&
+          this.createRecipeForm.value.itemsSubRec.length === 0 && this.createRecipeForm.value.prevProd.length ===
+          0) && this.createRecipeForm.value.prevSubr.length === 0">Save recipe
+        </button>
+      </div>
+    </div>
+    <div *ngIf="recipeToUpdate" class="row d-flex">
+      <div class="col-sm-6 d-flex justify-content-end">
+        <button class="btn btn-primary bg-transparent revertBtn" type="button" (click)="cancelUpdate()">Cancel</button>
+      </div>  
+      <div class="col-sm-6">         
+        <button class="btn btn-primary" type="submit" [disabled]="!createRecipeForm.valid || (this.createRecipeForm.value.itemsProd.length === 0 &&
+          this.createRecipeForm.value.itemsSubRec.length === 0 && this.createRecipeForm.value.prevProd.length ===
+          0) && this.createRecipeForm.value.prevSubr.length === 0">Save recipe
+        </button>
+      </div>
+    </div>    
+</form>
+    

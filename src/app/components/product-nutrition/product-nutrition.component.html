@@ -1,0 +1,103 @@
+<div class="row cardCtrl">
+  <nb-card class="nbCard mx-0">
+    <nb-card-body class="nbCardBody row mx-0">
+
+      <div class="col-sm-6">
+        <div id="totalWeight" class="mx-auto mt-2">Nutrients per 100g:</div>
+        <div class="progress-wrapper mx-auto mt-3">
+          <round-progress [max]="300" [current]="item.nutrition.ENERC_KCAL.value" [color]="'#922C40'" [radius]="15" [stroke]="3" [semicircle]="false"
+            [rounded]="false" [clockwise]="true" [responsive]="true" [duration]="800" [animation]="'easeInOutQuart'">
+          </round-progress>
+
+          <div class="text">{{item.nutrition.ENERC_KCAL.value}}</div>
+          <div class="subtitle">{{item.nutrition.ENERC_KCAL.description}}(kcal)</div>
+        </div>
+        <div class="progress-wrapper mx-auto mt-4">
+          <round-progress [max]="100" [current]="item.nutrition.PROCNT.value" [color]="'#922C40'" [radius]="15" [stroke]="3" [semicircle]="false"
+            [rounded]="false" [clockwise]="true" [responsive]="true" [duration]="800" [animation]="'easeInOutQuart'">
+          </round-progress>
+
+          <div class="text">{{item.nutrition.PROCNT.value}}</div>
+          <div class="subtitle">Proteins(g)</div>
+        </div>
+        <div class="progress-wrapper mx-auto mt-4">
+          <round-progress [max]="100" [current]="item.nutrition.CHOCDF.value" [color]="'#922C40'" [radius]="15" [stroke]="3" [semicircle]="false"
+            [rounded]="false" [clockwise]="true" [responsive]="true" [duration]="800" [animation]="'easeInOutQuart'">
+          </round-progress>
+
+          <div class="text">{{item.nutrition.CHOCDF.value}}</div>
+          <div class="subtitle">Carbohydrates(g)</div>
+        </div>
+        <div class="progress-wrapper mx-auto mt-4">
+          <round-progress [max]="100" [current]="item.nutrition.FAT.value" [color]="'#922C40'" [radius]="15" [stroke]="3" [semicircle]="false"
+            [rounded]="false" [clockwise]="true" [responsive]="true" [duration]="800" [animation]="'easeInOutQuart'">
+          </round-progress>
+
+          <div class="text">{{item.nutrition.FAT.value}}</div>
+          <div class="subtitle">Lipids(g)</div>
+        </div>
+      </div>
+      <div class="col-sm-6 pt-5">
+        <h6 class="row titleMinorNutrients mt-2 mr-2">Sugars and fiber</h6>
+
+        <div class="row mr-2">
+          <div class="description mr-auto">{{item.nutrition.SUGAR.description}}</div>
+          <div class="value">{{item.nutrition.SUGAR.value}}{{item.nutrition.SUGAR.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">Fiber, total</div>
+          <div class="value">{{item.nutrition.FIBTG.value}}{{item.nutrition.FIBTG.unit}}</div>
+        </div>
+        <hr>
+        <h6 class="row titleMinorNutrients mt-2 mr-2">Vitamins</h6>
+
+        <div class="row mr-2">
+          <div class="description mr-auto">Vitamin A</div>
+          <div class="value justify-content-end">{{item.nutrition.VITA_IU.value}}{{item.nutrition.VITA_IU.unit}}
+          </div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">Vitamin E</div>
+          <div class="value">{{item.nutrition.TOCPHA.value}}{{item.nutrition.TOCPHA.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">{{item.nutrition.VITD.description}}</div>
+          <div class="value">{{item.nutrition.VITD.value}}{{item.nutrition.VITD.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">Vitamin C</div>
+          <div class="value">{{item.nutrition.VITC.value}}{{item.nutrition.VITC.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">{{item.nutrition.VITB12.description}}</div>
+          <div class="value">{{item.nutrition.VITB12.value}}{{item.nutrition.VITB12.unit}}</div>
+        </div>
+        <hr>
+        <h6 class="row titleMinorNutrients mt-2 mr-2">Fatty acids total</h6>
+
+        <div class="row mr-2">
+          <div class="description mr-auto">Trans</div>
+          <div class="value">{{item.nutrition.FATRN.value}}{{item.nutrition.FATRN.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">Saturated</div>
+          <div class="value">{{item.nutrition.FASAT.value}}{{item.nutrition.FASAT.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">Monounsatur.</div>
+          <div class="value ml-auto">{{item.nutrition.FAMS.value}}{{item.nutrition.FAMS.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">Polyunsatur.</div>
+          <div class="value ml-auto">{{item.nutrition.FAPU.value}}{{item.nutrition.FAPU.unit}}</div>
+        </div>
+        <div class="row mr-2">
+          <div class="description mr-auto">{{item.nutrition.CHOLE.description}}</div>
+          <div class="value">{{item.nutrition.CHOLE.value}}{{item.nutrition.CHOLE.unit}}</div>
+        </div>
+      </div>
+      <button class="btn-close my-2 mx-auto bg-transparent" (click)="onCloseButtonClick()">Close</button>
+    </nb-card-body>
+
+  </nb-card>
+</div>

@@ -1,0 +1,91 @@
+$theme-colors: (
+    "primary": #922C40,
+    "secondary": #F3EAC0,
+    "success": #1E2640,
+    "info":  rgb(62, 73, 136),
+    "warning": #922C40,
+    "danger": #922C40,
+    "light": #ebebeb,
+);
+
+$screen-lg-min: 992px;
+
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/mixins";
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Roboto:400,500,700,900);
+@import "./assets/scss/variables";
+@import "./assets/scss/mixins";
+@import "./assets/scss/hamburgers.scss";
+// @import "../node_modules/ngx-toastr/toastr-bs4-alert.scss";
+@import '~ngx-toastr/toastr-bs4-alert';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background-color: $light;
+    height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+
+table {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+}
+
+.btn {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+}
+
+nav {
+    // height: 60px;
+    height: 10%;
+    background: linear-gradient(0.25turn, #DC9750, rgb(143, 76, 89));
+}
+
+thead {
+    background: linear-gradient(0.25turn, #DC9750, rgb(143, 76, 89));
+}
+
+ @media only screen and (max-width: 1250px) {
+    body .btn-group .selectbtns {
+        font-size: 13px;
+        padding: 5px;
+    }
+ } 
+
+ @media only screen and (min-width: 994px) {
+    .app-total-nutrition .progress-wrapper {
+        max-height: 90px;
+    }
+    .nbCardBody {
+        max-height: 450px;
+    }
+ } 
+ 
+ .toast-success {
+   background: #0ada9b !important;
+ }
+
+ .toast-error {
+   background: #a02e50 !important;
+ }
+
+ .toast-top-right {
+   top: 50% !important;
+   right: 40% !important;
+ }
+
+
+/*  @media only screen and (min-width: 1024px) {
+    body .btn-group .selectbtns {
+        font-size: 13px;
+        padding: 0px;
+    }
+ }  */

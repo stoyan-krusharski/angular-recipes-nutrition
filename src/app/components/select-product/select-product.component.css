@@ -1,0 +1,45 @@
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.productList {
+  height: 300px;
+  max-height: 300px;
+  width: 100%;
+}
+
+.list-group {
+  height: 300px;
+  max-height: 300px;
+  width: 100%;
+}
+
+.add {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.innerLine {
+  width: 100%;
+}
+
+.link, .btn-primary {
+  color: #922C40;
+  font-weight: bold;
+  border: none;
+}
+/*# sourceMappingURL=select-product.component.css.map */
